@@ -104,9 +104,9 @@ This guide assumes that you already have some understanding of AWS and have a wo
 
 ### Prerequisites:
 
-- [AWS CLI](https://github.com/joinpragra/Ansible-with-Terraform/blob/master/artifacts/scripts/install_software.sh) (Install AWS CLI)
-- [Terraform](https://github.com/joinpragra/Ansible-with-Terraform/blob/master/artifacts/scripts/config_software.sh) (Install Terraform)
-- [Ansible](https://github.com/joinpragra/Ansible-with-Terraform/blob/master/artifacts/scripts/install_software.sh) (Install Ansible)
+- [AWS CLI]
+- [Terraform]
+- [Ansible]
 
 Spinning up an instance on AWS
 
@@ -121,7 +121,7 @@ Have aws-cli installed and AWS configured with secret keys then run `aws configu
 
 **FIGURE 2: AWS credentials**
 
-I have uploaded the source code to a GitHub repo at this [location](https://github.com/joinpragra/Ansible-with-Terraform) for you to follow along should you see the need to put this to the test.
+I have uploaded the source code to a GitHub repo at this [location]https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible.git for you to follow along should you see the need to put this to the test.
 
 To summarize, we will be building the below components for you to follow along:
 - Create AWS account
@@ -209,7 +209,7 @@ For Ansible, you can first run the Terraform, and output the IP addresses, then 
 
 This file is not required; it's just a good practice for debugging if needed and it indicates on which version this code was built on.
 
-[terraform.tf](https://raw.githubusercontent.com/joinpragra/ Ansible-with-Terraform/master/artifacts/terraform/terraform.tf)
+[terraform.tf](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/terraform/terraform.tf)
 
 ```json
 terraform {
@@ -220,7 +220,7 @@ terraform {
 <span style="color:grey">*Each provider offers a set of named resource types, and defines for each resource type which arguments it accepts, which attributes it exports, and how changes to resources of that type are actually applied to remote APIs.*</span>[*](https://www.terraform.io/docs/configuration/providers.html)
 Terraform has plug-ins for each provider, and we need to download it before going to work with any cloud with Terraform by issuing the following command `terraform init`  and it will download the necessary plug-ins for AWS.
 
-[provider.tf](https://raw.githubusercontent.com/joinpragra/ Ansible-with-Terraform/master/artifacts/terraform/provider.tf)
+[provider.tf](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/terraform/provider.tf)
 
 ```json
 provider "aws" {
@@ -230,7 +230,7 @@ provider "aws" {
 ```
 
 #### Define AWS Resources
-[resources.tf](https://raw.githubusercontent.com/joinpragra/Ansible-with-Terraform/master/artifacts/terraform/resources.tf)
+[resources.tf](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/terraform/resources.tf)
 ```json
 resource "aws_key_pair" "tf_demo" {
   key_name   = "MyKeyPair"
@@ -416,7 +416,7 @@ resource "aws_security_group" "ping-ICMP" {
 ```
 
 #### Define Terraform variables
-[variables.tf](https://raw.githubusercontent.com/joinpragra/ Ansible-with-Terraform/master/artifacts/terraform/variables.tf)
+[variables.tf](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/terraform/variables.tf)
 
 ```json
 variable "profile" {
@@ -462,7 +462,7 @@ variable "ami" {
 ```
 #### Define Terraform Outputs
 
-[outputs.tf](https://raw.githubusercontent.com/joinpragra/Ansible-with-Terraform/master/artifacts/terraform/outputs.tf)
+[outputs.tf](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/terraform/outputs.tf)
 
 ```json
 output "url-jenkins" {
@@ -487,7 +487,7 @@ output "url-gitLab" {
 - Purge java 8 installer - to avoid problems if installation is repeated
 - Install Oracle Java 8
 
-[install_java.yaml](https://raw.githubusercontent.com/joinpragra/Ansible-with-Terraform/master/artifacts/playbooks/install_java.yaml)
+[install_java.yaml](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/playbooks/install_java.yaml)
 ```yaml
 ---
 - name: Install Oracle Java version 8
@@ -559,7 +559,7 @@ output "url-gitLab" {
 - Get init password Jenkins
 - Print init password Jenkins
 
-[install_jenkins.yaml](https://raw.githubusercontent.com/joinpragra/Ansible-with-Terraform/master/artifacts/playbooks/install_jenkins.yaml)
+[install_jenkins.yaml](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/playbooks/install_jenkins.yaml)
 ```yaml
 ---
 - name: Install Jenkins
@@ -615,7 +615,7 @@ output "url-gitLab" {
 - GitLab Restart with restart
 - GitLab gitlab-runsvdir status
 
-[install_gitlab.yaml](https://raw.githubusercontent.com/joinpragra/Ansible-with-Terraform/master/artifacts/playbooks/install_gitLab.yaml)
+[install_gitlab.yaml](https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/blob/master/artifacts/playbooks/install_gitLab.yaml)
 
 ```yaml
 ---
@@ -685,10 +685,10 @@ Terraform has four essential commands that allow us to deal with an end-to-end w
 
 We’ll walk you through the entire process, step-by-step:
 
-**1)** Download from https://github.com/csdeol100/Proj-Ansible-with-terraform.git.
+**1)** Download from https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible.git.
 
 ```sh
-$ git clone https://github.com/joinpragra/ Ansible-with-Terraform && cd  Proj-Ansible-with-terraform
+$ git clone https://github.com/manishbihal/Build-Repeatable-Infrastructure-using-Terraform-and-Ansible.git && cd  Build-Repeatable-Infrastructure-using-Terraform-and-Ansible
 ```
 
 **2)** Explore the directories and get yourself familiar with the code, go over each file and understand how they all work together (reserve 30 minutes for this exercise), make changes where you deem necessary:
@@ -749,8 +749,8 @@ Default output format [json]:
 **5)** terraform init to download the necessary provider file:
 
 ```sh
-vagrant@software:~/ Ansible-with-Terraform$ cd artifacts/terraform/
-vagrant@software:~/ Ansible-with-Terraform/artifacts/terraform$ terraform init
+vagrant@software:~/ Build-Repeatable-Infrastructure-using-Terraform-and-Ansible$ cd artifacts/terraform/
+vagrant@software:~/ Build-Repeatable-Infrastructure-using-Terraform-and-Ansible$ terraform init
 
 Initializing provider plugins...
 - Checking for available provider plugins on https://releases.hashicorp.com...
@@ -781,7 +781,7 @@ commands will detect it and remind you to do so if necessary.
 **6)** terraform plan
 
 ```sh
-vagrant@software:~/ Ansible-with-Terraform/artifacts/terraform$ terraform plan
+vagrant@software:~/ Build-Repeatable-Infrastructure-using-Terraform-and-Ansible/artifacts/terraform$ terraform plan
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
